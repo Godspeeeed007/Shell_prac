@@ -16,6 +16,7 @@ then
         echo "Not there...mysql is getting installed"
         dnf install mysql -y
         exit 0    
+    fi
 else
     echo "Please run with root access"
     exit 1
