@@ -5,9 +5,9 @@ read INPUT1
 echo "INPUT2:"
 read INPUT2
 
-TIME =$(date)
-echo "Executed at: $TIME "
+TIMESTAMP=$(date)
+echo "Executed at: $TIMESTAMP "
 
-Sum =$(($INPUT1+$INPUT2))
+Sum=($INPUT1+$INPUT2)
 
-echo " sum of $INPUT1 and $INPUT2 is $Sum and executed at $time" 
+echo " sum of $INPUT1 and $INPUT2 is $Sum and executed at $TIMESTAMP" 
