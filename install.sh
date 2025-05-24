@@ -7,7 +7,7 @@ if [ $USER -eq 0 ]
 then
     echo "You are running with root acess"
 
-    dnf list installed mysql 
+    dnf list installed mysql > /dev/null 2>&1 
     if [ $? -eq 0 ]
     then 
         echo "IT IS ALREADY THERE"
@@ -15,9 +15,7 @@ then
         exit 0
     else
         echo "Not there...mysql is getting installed"
-        #dnf install mysql -y
-        dnf list installed mysql > /dev/null 2>&1
-
+        dnf install mysql -y
         exit 0    
     fi
 else
