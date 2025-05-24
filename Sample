@@ -1,2 +1,4 @@
 #!/bin/bash
-echo "i love you"
+a = $a
+
+echo "a"
