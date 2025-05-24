@@ -11,6 +11,7 @@ then
     if [ $? -eq 0 ]
     then 
         echo "IT IS ALREADY THERE"
+        dnf remove mysql
         exit 0
     else
         echo "Not there...mysql is getting installed"
