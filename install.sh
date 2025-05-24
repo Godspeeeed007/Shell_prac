@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-USER = $(id -u)
+USER=$(id -u)
 
-if [ $USER -ne 0]
+if [ $USER -ne 0 ]
 (
     echo "Please run with root access"
     exit 1
