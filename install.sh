@@ -10,10 +10,10 @@ then
     validate(){ 
         if[ $? -eq 0 ]
         then 
-        echo-e "\e[31m $2 is present"
+        echo -e "\e[31m $2 is present"
         exit 1
         else 
-        echo-e "\e[31m $2 is not present"
+        echo -e "\e[31m $2 is not present"
         fi
         }
 
