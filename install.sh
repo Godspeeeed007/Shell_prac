@@ -14,26 +14,25 @@ then
         exit 0
     else
         echo "Not there...mysql is getting installed"
-        dnf install mysql -y   
-    fi
-
-    validate(){ 
-        if[ $? -eq 0 ]
+        dnf install mysql -y 
+        validate(){ 
+        if [ $? -eq 0 ]
         then 
         echo -e "\e[31m $2 is present"
-        exit 1
         else 
         echo -e "\e[31m $2 is not present"
+        exit 1
         fi
-    }
+    }  
+    fi
 
     dnf list installed nginx
-    if [ $? -ne 0 ]
+    if [ $? -eq 0 ]
     then 
         echo -e "\e[32m IT IS ALREADY THERE"
         exit 0
     else
-        echo -e "\e[31m Not there...mysql is getting installed"
+        echo -e "\e[31m Not there...nginx is getting installed"
         dnf install nginx -y
         validate $? nginx   
     fi
