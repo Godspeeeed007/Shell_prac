@@ -8,17 +8,17 @@ then
     echo "You are running with root acess"
 
     validate(){ 
-        if[ $? -eq 0 ];
+        if[ $? -eq 0 ]
         then 
         echo -e "\e[31m $2 is present"
         exit 1
         else 
         echo -e "\e[31m $2 is not present"
         fi
-        }
+    }
 
     dnf list installed mysql 
-    if [ $? -eq 0 ];
+    if [ $? -eq 0 ]
     then 
         echo "IT IS ALREADY THERE"
         exit 0
@@ -29,7 +29,7 @@ then
     fi
 
     dnf list installed nginx
-    if [ $? -ne 0 ];
+    if [ $? -ne 0 ]
     then 
         echo -e "\e[32m IT IS ALREADY THERE"
         exit 0
