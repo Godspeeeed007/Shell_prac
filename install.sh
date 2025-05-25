@@ -5,7 +5,7 @@ USER=$(id -u)
 
 if [ $USER -eq 0 ]
 then
-    echo -e "\e[31mYou are running with root acess\e[0m""
+    echo -e "\e[31mYou are running with root acess\e[0m"
 
     dnf list installed mysql 
     if [ $? -eq 0 ]
@@ -13,7 +13,7 @@ then
         echo -e "\e[32mMysql installed\e[0m"
         dnf remove mysql -y
     else
-        echo  -e "\e[31mNot there...mysql is getting installed\e[0m"
+        echo -e "\e[31m Not there...mysql is getting installed \e[0m"
         dnf install mysql -y 
         validate(){ 
         if [ $? -eq 0 ]
