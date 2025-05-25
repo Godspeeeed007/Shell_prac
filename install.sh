@@ -2,25 +2,33 @@
 
 
 USER=$(id -u)
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+
+LOGS_FOLDER="$PWD"
+LOG_FILENAME=$($0 | cut -d '.' -f1).log
+
+TIMESTAMP=$(date)
 
 if [ $USER -eq 0 ]
 then
-    echo -e "\e[31mYou are running with root acess\e[0m"
+    echo -e $G You are running with root acess$N
 
     dnf list installed mysql 
     if [ $? -eq 0 ]
     then 
-        echo -e "\e[32mMysql installed\e[0m"
+        echo -e $G Already Mysql installed$N
         dnf remove mysql -y
     else
-        echo -e "\e[31m Not there...mysql is getting installed \e[0m"
+        echo -e $R Not there...mysql is getting installed$N
         dnf install mysql -y 
         validate(){ 
         if [ $? -eq 0 ]
         then 
-        echo -e "\e[32m$2 Installed\e[0m"
+        echo -e $G $2 Installed$N
         else 
-        echo -e "\e[31m$2  Not Installed\e[0m"
+        echo -e $R $2  Not Installed$N
         exit 1
         fi
     }  
@@ -29,10 +37,10 @@ then
     dnf list installed nginx
     if [ $? -eq 0 ]
     then 
-        echo -e "\e[32mAlready Installed\e[0m"
+        echo -e $G Already Installed$N
         dnf remove nginx -y
     else
-        echo -e "\e[31mnginx is not installed...nginx is getting installed\e[0m"
+        echo -e $R nginx is not installed...nginx is getting installed$N
         dnf install nginx -y
         validate $? nginx   
     fi
