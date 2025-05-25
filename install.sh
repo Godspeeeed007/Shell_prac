@@ -25,7 +25,7 @@ then
     else
         echo "Not there...mysql is getting installed"
         dnf install mysql -y
-        validate() $? mysql   
+        validate $? mysql   
     fi
 
     dnf list installed nginx
@@ -36,7 +36,7 @@ then
     else
         echo -e "\e[31m Not there...mysql is getting installed"
         dnf install nginx -y
-        validate() $? nginx   
+        validate $? nginx   
     fi
 
 else
