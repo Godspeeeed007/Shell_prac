@@ -7,9 +7,13 @@ G="\e[32m"
 N="\e[0m"
 
 LOGS_FOLDER="$PWD"
-LOG_FILENAME=$($0 | cut -d '.' -f1).log
+LOG_FILENAME=$($0 | cut -d '.' -f1)
+
+mkdir -p "$LOGS_FOLDER/$LOG_FILENAME".log
 
 TIMESTAMP=$(date)
+
+echo "executed at :$TIMESTAMP"
 
 if [ $USER -eq 0 ]
 then
