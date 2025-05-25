@@ -7,6 +7,16 @@ if [ $USER -eq 0 ]
 then
     echo "You are running with root acess"
 
+    dnf list installed mysql 
+    if [ $? -eq 0 ]
+    then 
+        echo "IT IS ALREADY THERE"
+        exit 0
+    else
+        echo "Not there...mysql is getting installed"
+        dnf install mysql -y   
+    fi
+
     validate(){ 
         if[ $? -eq 0 ]
         then 
@@ -16,17 +26,6 @@ then
         echo -e "\e[31m $2 is not present"
         fi
     }
-
-    dnf list installed mysql 
-    if [ $? -eq 0 ]
-    then 
-        echo "IT IS ALREADY THERE"
-        exit 0
-    else
-        echo "Not there...mysql is getting installed"
-        dnf install mysql -y
-        validate $? mysql   
-    fi
 
     dnf list installed nginx
     if [ $? -ne 0 ]
