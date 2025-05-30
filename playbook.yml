@@ -1,6 +1,6 @@
-- Name: Hello world
-  host: Frontend
-  task: Ping th server
-  - Name : Ping
-    ansible.builtin.ping:
+- name: Hello world
+  hosts: Frontend
+  tasks: 
+    - name: Ping the server
+      ansible.builtin.ping:
 
