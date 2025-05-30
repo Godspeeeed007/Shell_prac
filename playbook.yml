@@ -4,3 +4,17 @@
     - name: Ping the server
       ansible.builtin.ping:
 
+- name: Install nginx
+  hosts: frontend
+  become: yes
+  tasks:
+  - name: Installing
+    ansible.builtin.package:
+      name: nginx
+      state: present
+
+  - name: starting
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
